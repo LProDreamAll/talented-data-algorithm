@@ -9,6 +9,7 @@ import org.junit.Test;
 import static hhl.util.Utils.doMakeListNode;
 import static linkedlist.LikedListSolution.reverseList;
 import static linkedlist.LikedListSolution.swapPairs;
+import static linkedlist.LikedListSolution.reverseKGroup;
 import static model.Util.println;
 import static org.junit.Assert.assertEquals;
 
@@ -31,7 +32,7 @@ public class LikedListSolutionTest {
     @Before
     public void creatLinkedList() {
         listNode = doMakeListNode(5);
-        println("old listNode : " + listNode);
+        println(" listNode : " + listNode);
         listNodeOld = reverseList(doMakeListNode(5));
     }
 
@@ -66,6 +67,17 @@ public class LikedListSolutionTest {
 
     }
 
+
+    @Test
+    public void test_reverseKGroup() {
+        ListNode reverseKGroupListNode2 = reverseKGroup( doMakeListNode(5), 2);
+        ListNode reverseKGroupListNode3 = reverseKGroup( doMakeListNode(5), 3);
+        assertEquals(reverseKGroupListNode2.toString(), "ListNode(val=2, next=ListNode(val=1, next=ListNode(val=4, next=ListNode(val=3, next=ListNode(val=5, next=null)))))");
+        assertEquals(reverseKGroupListNode3.toString(), "ListNode(val=3, next=ListNode(val=2, next=ListNode(val=1, next=ListNode(val=4, next=ListNode(val=5, next=null)))))");
+        log.info("reverseKGroupListNode2:{}", reverseKGroupListNode2);
+        log.info("reverseKGroupListNode3:{}", reverseKGroupListNode3);
+
+    }
 }
 
     
