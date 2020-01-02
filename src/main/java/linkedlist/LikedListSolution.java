@@ -44,13 +44,10 @@ public class LikedListSolution {
 
     public boolean hasCycle(ListNode head) {
         //1-直接循环直到下一个节点为null
-
         if (head == null || head.next == null) {
             return false;
         }
-        while (head.next != null) {
-            head = head.next;
-        }
+        hasCycle(head.next);
         return true;
     }
 
