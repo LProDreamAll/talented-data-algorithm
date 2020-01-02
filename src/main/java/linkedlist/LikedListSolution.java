@@ -38,24 +38,6 @@ public class LikedListSolution {
      * @Author s·D·bs
      * @Description 判断一个链表中是否含有环
      * 时间复杂度为O(n) 空间复杂度为O(1)
-     * @Date 2019年12月24日23:04:19
-     * @Param
-     */
-
-    public boolean hasCycle(ListNode head) {
-        //1-直接循环直到下一个节点为null
-        if (head == null || head.next == null) {
-            return false;
-        }
-        hasCycle(head.next);
-        return true;
-    }
-
-    /**
-     * @return
-     * @Author s·D·bs
-     * @Description 判断一个链表中是否含有环
-     * 时间复杂度为O(n) 空间复杂度为O(1)
      * @Date 2020年01月02日10:37:44
      * @Param
      */
