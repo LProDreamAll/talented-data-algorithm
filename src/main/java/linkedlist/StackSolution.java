@@ -52,6 +52,7 @@ public class StackSolution {
      * 判断字符串 '[(())]' 是否合理
      * 时间复杂度O(n) 空间复杂度O(1)
      * 找到中间点，从中间往两边扩散匹配
+     *
      * @param s
      * @return
      */
