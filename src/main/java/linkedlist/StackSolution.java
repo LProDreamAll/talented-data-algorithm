@@ -27,13 +27,13 @@ public class StackSolution {
         map.put(']', '[');
         map.put('}', '{');
         for (char c : s.toCharArray()) {
-            if (!map.containsKey(c)) {//不是右括号的时候
+            if (!map.containsKey(c)) {//是左括号的时候
                 stack.add(c);
-            } else if (stack.isEmpty() || !map.get(c).equals(stack.pop())) {
+            } else if (stack.empty() || !map.get(c).equals(stack.pop())) {
                 return false;
             }
         }
-        return true;
+        return stack.empty();
     }
 
     /**
