@@ -4,6 +4,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Stack;
 
+
+
 /**
  * Stack
  *
@@ -13,7 +15,6 @@ public class StackSolution {
 
 
     /**
-     * @return
      * @Author s·D·bs
      * @Description // 判断字符串 '[(())]' 是否合理
      * 时间复杂度为O(n) 空间复杂度为O(n)
@@ -52,5 +53,33 @@ public class StackSolution {
             s = s.replace("()", "").replace("[]", "").replace("{}", "");
         } while (len != s.length());
         return s.length() == 0;
+    }
+
+    /**
+     * @param s
+     * @return
+     * @Author now-l
+     * 判断字符串 '[(())]' 是否合理
+     * 时间复杂度O(n) 空间复杂度O(1)
+     * 找到中间点，从中间往两边扩散匹配
+     */
+    public boolean isValid2(String s) {
+        Map<Character, Character> map = new LinkedHashMap<>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
+        if (Objects.nonNull(s) && s.length() % 2 > 0) {
+            return false;
+        }
+        int middle = s.length() / 2;
+        for (int i = middle - 1, j = middle; i >= 0;
+             i--, j++) {
+            Character close = s.charAt(j);
+            Character begin = s.charAt(i);
+            if (!close.equals(map.get(begin))) {
+                return false;
+            }
+        }
+        return true;
     }
 }
