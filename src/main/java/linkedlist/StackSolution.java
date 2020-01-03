@@ -10,9 +10,9 @@ import java.util.*;
 public class StackSolution {
 
     /**
+     * @Author s·D·bs
      * 判断字符串 '[(())]' 是否合理
      * 时间复杂度O(n) 空间复杂度O(n)
-     *
      * @param s
      * @return
      */
@@ -33,6 +33,7 @@ public class StackSolution {
     }
 
     /**
+     * @Author s·D·bs
      * 判断字符串 '[(())]' 是否合理
      * 时间复杂度O(n^2) 空间复杂度O(n)
      *
@@ -49,12 +50,12 @@ public class StackSolution {
     }
 
     /**
+     * @param s
+     * @return
+     * @Author now-l
      * 判断字符串 '[(())]' 是否合理
      * 时间复杂度O(n) 空间复杂度O(1)
      * 找到中间点，从中间往两边扩散匹配
-     *
-     * @param s
-     * @return
      */
     public boolean isValid2(String s) {
         Map<Character, Character> map = new LinkedHashMap<>();
