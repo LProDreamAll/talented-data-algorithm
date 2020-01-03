@@ -1,18 +1,24 @@
 package linkedlist;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Stack;
 
 /**
  * Stack
+ *
+ * @Author s·D·bs
  */
 public class StackSolution {
 
+
     /**
-     * 判断字符串 '[(())]' 是否合理
-     * 时间复杂度O(n) 空间复杂度O(n)
-     *
-     * @param s
      * @return
+     * @Author s·D·bs
+     * @Description // 判断字符串 '[(())]' 是否合理
+     * 时间复杂度为O(n) 空间复杂度为O(n)
+     * @Date 2020年01月03日14:45:41
+     * @Param
      */
     public static boolean isVaild(String s) {
         Stack<Character> stack = new Stack<>();
@@ -31,12 +37,14 @@ public class StackSolution {
     }
 
     /**
-     * 判断字符串 '[(())]' 是否合理
-     * 时间复杂度O(n^2) 空间复杂度O(n)
-     *
-     * @param s
      * @return
+     * @Author s·D·bs
+     * @Description // 判断字符串 '[(())]' 是否合理
+     * 时间复杂度O(n^2) 空间复杂度O(n)
+     * @Date 2020年01月03日14:45:38
+     * @Param
      */
+
     public boolean isVaild1(String s) {
         int len;
         do {
