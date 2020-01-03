@@ -7,6 +7,8 @@ import java.util.Set;
 
 /**
  * Liked
+ *
+ * @Author s·D·bs
  */
 public class LikedListSolution {
 
