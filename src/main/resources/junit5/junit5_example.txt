@@ -1,0 +1,19 @@
+JUnit 5 注解
+@Test	表明一个测试方法
+@DisplayName	测试类或方法的显示名称
+@BeforeEach	表明在单个测试方法运行之前执行的方法
+@AfterEach	表明在单个测试方法运行之后执行的方法
+@BeforeAll	表明在所有测试方法运行之前执行的方法
+@AfterAll	表明在所有测试方法运行之后执行的方法
+@Disabled	禁用测试类或方法
+@Tag	   为测试类或方法添加标签
+
+JUnit 5 断言
+assertEquals	判断两个对象或两个原始类型是否相等
+assertNotEquals	判断两个对象或两个原始类型是否不相等
+assertSame	判断两个对象引用是否指向同一个对象
+assertNotSame	判断两个对象引用是否指向不同的对象
+assertTrue	判断给定的布尔值是否为 true
+assertFalse	判断给定的布尔值是否为 false
+assertNull	判断给定的对象引用是否为 null
+assertNotNull	判断给定的对象引用是否不为 null
