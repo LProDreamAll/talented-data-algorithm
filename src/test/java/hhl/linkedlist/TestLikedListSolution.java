@@ -73,8 +73,8 @@ class TestLikedListSolution {
     @Test
     @DisplayName("测试给出一个链表，每 k 个节点一组进行翻转，并返回翻转后的链表")
     void test_reverseKGroup() {
-        ListNode reverseKGroupListNode2 = reverseKGroup(doMakeListNode(5), 2);
-        ListNode reverseKGroupListNode3 = reverseKGroup(doMakeListNode(5), 3);
+        ListNode reverseKGroupListNode2 = reversekGroup(doMakeListNode(5), 2);
+        ListNode reverseKGroupListNode3 = reversekGroup(doMakeListNode(5), 3);
         assertEquals(reverseKGroupListNode2.toString(), "ListNode(val=2, next=ListNode(val=1, next=ListNode(val=4, next=ListNode(val=3, next=ListNode(val=5, next=null)))))");
         assertEquals(reverseKGroupListNode3.toString(), "ListNode(val=3, next=ListNode(val=2, next=ListNode(val=1, next=ListNode(val=4, next=ListNode(val=5, next=null)))))");
         log.info("reverseKGroupListNode2:{}", reverseKGroupListNode2);
