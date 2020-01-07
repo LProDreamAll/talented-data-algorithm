@@ -171,6 +171,7 @@ public class LikedListSolution {
      * @Param
      */
     public static ListNode reversekGroup(ListNode head, int k) {
+
         // 增加虚拟头结点 其实就是使用哨兵模式对不确定边界进行确定
         ListNode dummy = new ListNode(0);
         dummy.next = head;
