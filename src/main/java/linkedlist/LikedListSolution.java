@@ -10,6 +10,7 @@ import java.util.Set;
  *
  * @Author s·D·bs
  */
+@SuppressWarnings("ALL")
 public class LikedListSolution {
 
     /**
@@ -169,7 +170,8 @@ public class LikedListSolution {
      * @Date 2020-01-02 10:42
      * @Param
      */
-    public static ListNode reverseKGroup(ListNode head, int k) {
+    public static ListNode reversekGroup(ListNode head, int k) {
+
         // 增加虚拟头结点 其实就是使用哨兵模式对不确定边界进行确定
         ListNode dummy = new ListNode(0);
         dummy.next = head;
@@ -178,9 +180,13 @@ public class LikedListSolution {
         ListNode end = dummy; //作为分组的跟随节点
         while (end.next != null) {
             // 以 k 个结点为条件，分组子链表
-            for (int i = 0; i < k && end != null; i++) end = end.next;
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
             // 特殊->末尾不满一组的子链表，保持原样不进行翻转
-            if (end == null) break;
+            if (end == null){
+                break;
+            }
             //处理子链表
             ListNode start = prev.next;
             //已经赋值给next，end变化不会影响next
