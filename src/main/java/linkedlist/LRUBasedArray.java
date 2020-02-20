@@ -15,6 +15,7 @@ import java.util.Map;
  * 2. 时间复杂度为O(n)
  * 3. 不支持null的缓存
  * Motto: 0.45%
+ * https://mubu.com/doc73jCBcpQQ9k
  * <author>          <time>          <version>
  * s·D·js         2020/2/19 6:18 下午          0.0.0
  */
@@ -64,7 +65,7 @@ public class LRUBasedArray<T> {
         holder.put(obj, 0);
     }
 
-    //不存在+1
+    //不存在+1 直接存无需移动
     private void cache(T obj, Integer end) {
         update(obj, end);
         count++;
@@ -96,57 +97,6 @@ public class LRUBasedArray<T> {
         }
         return sb.toString();
     }
-
-    public static void main(String[] args) {
-        testDefaultConstructor();
-        testSpecifiedConstructor(4);
-//            testWithException();
-    }
-
-    private static void testWithException() {
-        LRUBasedArray<Integer> lru = new LRUBasedArray<Integer>();
-        lru.offer(null);
-    }
-
-    public static void testDefaultConstructor() {
-        System.out.println("======无参测试========");
-        LRUBasedArray<Integer> lru = new LRUBasedArray<Integer>();
-        lru.offer(1);
-        lru.offer(2);
-        lru.offer(3);
-        lru.offer(4);
-        lru.offer(5);
-        System.out.println(lru);
-        lru.offer(6);
-        lru.offer(7);
-        lru.offer(8);
-        lru.offer(9);
-        System.out.println(lru);
-    }
-
-    public static void testSpecifiedConstructor(int capacity) {
-        System.out.println("======有参测试========");
-        LRUBasedArray<Integer> lru = new LRUBasedArray<Integer>(capacity);
-        lru.offer(1);
-        System.out.println(lru);
-        lru.offer(2);
-        System.out.println(lru);
-        lru.offer(3);
-        System.out.println(lru);
-        lru.offer(4);
-        System.out.println(lru);
-        lru.offer(2);
-        System.out.println(lru);
-        lru.offer(4);
-        System.out.println(lru);
-        lru.offer(7);
-        System.out.println(lru);
-        lru.offer(1);
-        System.out.println(lru);
-        lru.offer(2);
-        System.out.println(lru);
-    }
-
 }
 
     
