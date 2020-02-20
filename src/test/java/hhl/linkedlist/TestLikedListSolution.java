@@ -1,5 +1,6 @@
 package hhl.linkedlist;
 
+import linkedlist.LRUBasedArray;
 import lombok.extern.slf4j.Slf4j;
 import model.ListNode;
 import org.junit.jupiter.api.BeforeEach;
@@ -81,6 +82,53 @@ class TestLikedListSolution {
         log.info("reverseKGroupListNode3:{}", reverseKGroupListNode3);
 
     }
+
+    @Test
+    @DisplayName("测试数组实现LRU缓存 无参构造")
+    void testDefaultConstructor() {
+        System.out.println("======无参测试========");
+        LRUBasedArray<Integer> lru = new LRUBasedArray<Integer>();
+        lru.offer(1);
+        lru.offer(2);
+        lru.offer(3);
+        lru.offer(4);
+        lru.offer(5);
+        assertEquals("5 4 3 2 1 ",lru.toString());
+        lru.offer(6);
+        lru.offer(7);
+        lru.offer(8);
+        lru.offer(9);
+        assertEquals("9 8 7 6 5 4 3 2 ",lru.toString());
+
+
+    }
+
+    @Test
+    @DisplayName("测试数组实现LRU缓存 有参构造")
+    void testSpecifiedConstructorConstructor() {
+        System.out.println("======有参测试========");
+        LRUBasedArray<Integer> lru = new LRUBasedArray<>((1 << 2));
+        lru.offer(1);
+        assertEquals("1 ",lru.toString());
+        lru.offer(2);
+        assertEquals("2 1 ",lru.toString());
+        lru.offer(3);
+        assertEquals("3 2 1 ",lru.toString());
+        lru.offer(4);
+        assertEquals("4 3 2 1 ",lru.toString());
+        lru.offer(2);
+        assertEquals("2 4 3 1 ",lru.toString());
+        lru.offer(4);
+        assertEquals("4 2 3 1 ",lru.toString());
+        lru.offer(7);
+        assertEquals("7 4 2 3 ",lru.toString());
+        lru.offer(1);
+        assertEquals("1 7 4 2 ",lru.toString());
+        lru.offer(2);
+        assertEquals("2 1 7 4 ",lru.toString());
+
+    }
+
 }
 
     
