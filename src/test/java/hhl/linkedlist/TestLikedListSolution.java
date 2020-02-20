@@ -1,5 +1,6 @@
 package hhl.linkedlist;
 
+import linkedlist.LRUBaseLinkedList;
 import linkedlist.LRUBasedArray;
 import lombok.extern.slf4j.Slf4j;
 import model.ListNode;
@@ -128,7 +129,31 @@ class TestLikedListSolution {
         assertEquals("2 1 7 4 ",lru.toString());
 
     }
+    @Test
+    @DisplayName("测试链表实现LRU缓存 有参构造")
+    void testSLRUBaseLinkedListConstructorConstructor() {
+        System.out.println("======有参测试========");
+        LRUBaseLinkedList<Integer> lru = new LRUBaseLinkedList<>((1 << 2));
+        lru.add(1);
+        assertEquals("1 ",lru.toString());
+        lru.add(2);
+        assertEquals("2 1 ",lru.toString());
+        lru.add(3);
+        assertEquals("3 2 1 ",lru.toString());
+        lru.add(4);
+        assertEquals("4 3 2 1 ",lru.toString());
+        lru.add(2);
+        assertEquals("2 4 3 1 ",lru.toString());
+        lru.add(4);
+        assertEquals("4 2 3 1 ",lru.toString());
+        lru.add(7);
+        assertEquals("7 4 2 3 ",lru.toString());
+        lru.add(1);
+        assertEquals("1 7 4 2 ",lru.toString());
+        lru.add(2);
+        assertEquals("2 1 7 4 ",lru.toString());
 
+    }
 }
 
     
