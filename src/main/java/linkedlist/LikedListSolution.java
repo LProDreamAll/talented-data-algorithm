@@ -13,6 +13,7 @@ import java.util.Set;
 @SuppressWarnings("ALL")
 public class LikedListSolution {
 
+
     /**
      * @return
      * @Author s·D·bs
@@ -184,7 +185,7 @@ public class LikedListSolution {
                 end = end.next;
             }
             // 特殊->末尾不满一组的子链表，保持原样不进行翻转
-            if (end == null){
+            if (end == null) {
                 break;
             }
             //处理子链表
@@ -201,5 +202,80 @@ public class LikedListSolution {
         }
         return dummy.next;
     }
+    //理解哨兵模式简化代码
 
+    /**
+     * 理解哨兵模式简化代码
+     * 有序链表合并 Leetcode 21
+     * 删除倒数第k节点
+     * 求链表的中间结点
+     */
+
+    //求链表的中间结点
+    public static ListNode findMiddleNode(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    //删除倒数第k节点
+    public static ListNode deleteLastKth(ListNode list, int k) {
+        ListNode fast = list;
+        //找到前k个链表
+        int i = 1;
+        while (fast != null && i < k) {
+            fast = fast.next;
+            i++;
+        }
+        if (fast == null) {
+            return list;
+        }
+        //同时循环 找到倒数第k个位置
+        ListNode slow = list;
+        ListNode prev = null;
+        while (fast != null) {
+            fast = fast.next;
+            prev = slow;
+            slow = slow.next;
+        }
+        //判断prev的值
+        if (prev == null) {
+            list = list.next;
+        } else {
+            prev.next = prev.next.next;
+        }
+        return list;
+    }
+
+    //有序链表的合并
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        //使用哨兵
+        ListNode soldier = new ListNode(0);
+        ListNode p = soldier;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                p.next = l1;
+                l1 = l1.next;
+            } else {
+                p.next = l2;
+                l2 = l2.next;
+            }
+            p = p.next;
+        }
+        //此时较短的链表已经循环完毕，剩下的直接选取一截
+        if (l1 != null) {
+            p.next = l1;
+        }
+        if (l2 != null) {
+            p.next = l2;
+        }
+        return soldier.next;//头结点的存在
+    }
 }

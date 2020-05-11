@@ -51,7 +51,7 @@ public class LRUBasedArray<T> {
                 removeAndCache(obj);
             } else {
                 //和update的区别在于 count++
-                cache(obj, count);
+                cache(  obj, count);
             }
         } else {
             update(obj, key);
